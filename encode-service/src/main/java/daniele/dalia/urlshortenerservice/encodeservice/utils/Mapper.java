@@ -4,9 +4,10 @@ import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenRequest;
 import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenResponse;
 import daniele.dalia.urlshortenerservice.encodeservice.entity.ShortUrlEntity;
 
-import java.sql.Timestamp;
-import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 
 public class Mapper {
 
@@ -14,7 +15,7 @@ public class Mapper {
         return new ShortenResponse(
                 baseUrl + "/" + entity.getShortCode(),
                 entity.getShortCode(),
-                entity.getExpireAt().toString()
+                entity.getExpireAt()
         );
     }
 
@@ -22,14 +23,18 @@ public class Mapper {
         var entity = new ShortUrlEntity();
         entity.setOriginalUrl(request.originalUrl());
         entity.setShortCode(shortUrl);
-        entity.setCreatedAt(Timestamp.from(now));
-        if (request.expiresInDays() != null) {
-            entity.setExpireAt(Timestamp.from(now.plus(Duration.ofDays(request.expiresInDays()))));
-        } else {
-            entity.setExpireAt(Timestamp.from(now.plus(Duration.ofDays(365))));
-        }
+
+        var zoneId = ZoneId.systemDefault();
+        entity.setCreatedAt(now.atZone(zoneId).toLocalDateTime());
+        entity.setExpireAt(getExpireAt(request, now, zoneId));
 
         return entity;
     }
 
+    private static LocalDateTime getExpireAt(ShortenRequest request, Instant now, ZoneId zoneId) {
+        var amountToAdd = request.expiresInDays() != null ? request.expiresInDays() : 365;
+        var instant = now.plus(amountToAdd, ChronoUnit.DAYS);
+
+        return instant.atZone(zoneId).toLocalDateTime();
+    }
 }

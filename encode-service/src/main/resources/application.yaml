@@ -14,5 +14,7 @@ spring:
 server:
   port: ${SERVER_PORT:8081}
 
-baseUrl: ${BASE_URL}
+base-url: ${BASE_URL}
+short-code:
+  max-attempts: ${SHORT_CODE:10}
 

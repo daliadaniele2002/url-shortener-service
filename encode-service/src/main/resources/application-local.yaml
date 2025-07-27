@@ -2,7 +2,7 @@ DB_URL: jdbc:postgresql://localhost:5432/encode_url_db
 DB_USER: daniele
 DB_PASSWORD: password12345
 
-BASE_URL: localhost:8080
+BASE_URL: localhost:8081
 
 spring:
   jpa:

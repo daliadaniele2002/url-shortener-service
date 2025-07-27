@@ -1,4 +1,6 @@
 package daniele.dalia.urlshortenerservice.encodeservice.dto;
 
-public record ShortenResponse(String shortUrl, String shortCode, /*TODO*/String expireAt) {
+import java.time.LocalDateTime;
+
+public record ShortenResponse(String shortUrl, String shortCode, LocalDateTime expireAt) {
 }
