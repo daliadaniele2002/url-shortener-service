@@ -2,7 +2,7 @@ package daniele.dalia.urlshortenerservice.encodeservice.service;
 
 import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenRequest;
 import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenResponse;
-import daniele.dalia.urlshortenerservice.encodeservice.entity.ShortUrlEntity;
+import daniele.dalia.urlshortenerservice.common.entity.ShortUrlEntity;
 import daniele.dalia.urlshortenerservice.encodeservice.repo.ShortUrlRepository;
 import daniele.dalia.urlshortenerservice.encodeservice.utils.Mapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.UUID;
 
-import static daniele.dalia.urlshortenerservice.encodeservice.entity.ShortUrlEntity.UK_SHORT_CODE;
+import static daniele.dalia.urlshortenerservice.common.entity.ShortUrlEntity.UK_SHORT_CODE;
 
 @Service
 public class UrlShortenerService {

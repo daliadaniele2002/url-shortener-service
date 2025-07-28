@@ -1,5 +1,4 @@
-package daniele.dalia.urlshortenerservice.encodeservice.entity;
-
+package daniele.dalia.urlshortenerservice.common.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package daniele.dalia.urlshortenerservice.encodeservice.repo;
 
-import daniele.dalia.urlshortenerservice.encodeservice.entity.ShortUrlEntity;
+import daniele.dalia.urlshortenerservice.common.entity.ShortUrlEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

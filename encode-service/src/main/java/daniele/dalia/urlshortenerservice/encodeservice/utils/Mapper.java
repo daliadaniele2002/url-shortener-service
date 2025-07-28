@@ -2,7 +2,7 @@ package daniele.dalia.urlshortenerservice.encodeservice.utils;
 
 import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenRequest;
 import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenResponse;
-import daniele.dalia.urlshortenerservice.encodeservice.entity.ShortUrlEntity;
+import daniele.dalia.urlshortenerservice.common.entity.ShortUrlEntity;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
