@@ -5,13 +5,11 @@ import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenRequest;
 import daniele.dalia.urlshortenerservice.encodeservice.handler.GlobalExceptionHandler;
 import daniele.dalia.urlshortenerservice.encodeservice.service.UrlShortenerService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.mock;
@@ -20,21 +18,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(UrlShortenerController.class)
-@Import({GlobalExceptionHandler.class, UrlShortenerControllerValidationTest.MockConfig.class})
+@Import({GlobalExceptionHandler.class})
 public class UrlShortenerControllerValidationTest {
     @Autowired
     protected MockMvc mockMvc;
 
-    @Autowired
+    @MockitoBean
     private UrlShortenerService service;
-
-    @TestConfiguration
-    static class MockConfig {
-        @Bean
-        public UrlShortenerService urlShortenerService() {
-            return Mockito.mock(UrlShortenerService.class);
-        }
-    }
 
     @Test
     void should_200() throws Exception {
