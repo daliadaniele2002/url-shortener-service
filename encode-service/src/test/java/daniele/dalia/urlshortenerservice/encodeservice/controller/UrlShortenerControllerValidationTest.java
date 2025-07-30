@@ -2,7 +2,7 @@ package daniele.dalia.urlshortenerservice.encodeservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import daniele.dalia.urlshortenerservice.encodeservice.dto.ShortenRequest;
-import daniele.dalia.urlshortenerservice.encodeservice.handler.GlobalExceptionHandler;
+import daniele.dalia.urlshortenerservice.encodeservice.config.GlobalExceptionHandler;
 import daniele.dalia.urlshortenerservice.encodeservice.service.UrlShortenerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

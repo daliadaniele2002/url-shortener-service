@@ -35,7 +35,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Map<String, String> handleGeneric(Exception ex) {
         logger.error("Error", ex);
-        
+
         return Map.of("error", "Internal server error");
     }
 }
