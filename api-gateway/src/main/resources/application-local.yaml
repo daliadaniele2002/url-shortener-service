@@ -1,0 +1,2 @@
+ENCODE_PATH: http://localhost:8081
+DECODE_PATH: http://localhost:8082

@@ -17,10 +17,23 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2025.0.0</version> <!-- совместима с Spring Boot 3.2+ и 3.5.x -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <modules>
         <module>common</module>
         <module>encode-service</module>
         <module>decode-service</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>

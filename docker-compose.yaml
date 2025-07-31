@@ -35,5 +35,16 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
 
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - encode-service
+      - decode-service
+    environment:
+      ENCODE_PATH: http://encode-service:8081
+      DECODE_PATH: http://decode-service:8082
+
 volumes:
   pgdata:
